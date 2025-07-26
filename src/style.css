@@ -1,0 +1,96 @@
+/* can animation */
+.container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  position: absolute;
+}
+
+.cane {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 170px;
+  z-index: 2;
+  transition: 0.7s;
+  --left: 250px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  top: 120px;
+}
+
+.cane .pack {
+  position: absolute;
+  background: var(--bg) var(--left), url(../public/Img/mockup.png);
+  background-size: auto 100%;
+  width: 220px;
+  aspect-ratio: 2/4;
+  background-blend-mode: multiply;
+  mask-image: url(../public/Img/mockup.png);
+  mask-size: auto 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.7s;
+}
+
+.container .cane:hover {
+  --left: -980px;
+  transform: translateX(-50%) translateY(-20%);
+}
+
+.container .cane .pack:nth-child(2) {
+  opacity: 0;
+}
+
+.container .cane:hover .pack:nth-child(2) {
+  opacity: 1;
+}
+
+
+
+
+/* font */
+
+
+@font-face {
+  font-family: 'CustomFont1';
+  src: url(../public/font/font1.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CustomFont2';
+  src: url(../public/font/font2.woff2) format('woff2');
+ 
+}
+@font-face {
+  font-family: 'CustomFont3';
+  src: url(../public/font/font3.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'rejoice';
+  src: url(../public/font/Rejouice-Headline.woff2);
+}
+
+.night{
+  
+  font-family:'CustomFont1';
+}
+.coke{
+  
+  margin-top: -90px;
+}
+.active_menu{
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+
+

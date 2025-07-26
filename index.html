@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="relative bg-black text-white">
+    <section class="w-full h-screen flex relative">
+      <div class="bg-black w-1/2 flex items-center">
+        <div class="pl-10">
+          <h1>
+            <img class="w-[120px]" alt="cokacola" src="/public/Img/cokacola.png" />
+          </h1>
+          <h1 class="text-[4rem] mt-[-40px]">Night Coke</h1>
+          <h2 class="text-3xl">Incredible Refreshing</h2>
+          <p class="max-w-[460px] mt-4 font-[CustomFont1] text-[0.87rem]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <button class="px-6 py-2 bg-orange-400 mt-4">Place order</button>
+        </div>
+      </div>
+
+      <div class="bg-neutral-700 w-1/2 text-[13rem] font-bold pl-10">
+        <h1 class="night mt-[60px]">Night</h1>
+        <h1 class="coke">Coke</h1>
+      </div>
+
+      <div class="container absolute">
+        <div class="cane">
+          <div class="pack" style="--bg: url(./public/Img/coca.jpeg)"></div>
+          <div class="pack" style="--bg: url(./public/Img/rio.jpg)"></div>
+        </div>
+      </div>
+
+      <nav class="absolute top-0 left-0 right-0 flex justify-between px-4 py-6 text-2xl">
+        <div>
+          <span class="text-white">Club</span>
+          <span class="text-orange-500">Mine</span>
+        </div>
+        <div class="menu_bar">
+          <span class="text-white"><i class="fa-solid fa-bars"></i></span>
+        </div>
+      </nav>
+
+      <div class="text-white absolute bottom-4 left-4 flex items-center">
+        <div class="text-3xl"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <div>Only 99Cal</div>
+      </div>
+    </section>
+
+    <!-- Menu Overlay -->
+    <div
+      id="menuOverlay"
+      class="fixed inset-0 bg-black bg-opacity-95 text-white hidden z-50 flex flex-col text-[5rem] text-4xl gap-10 px-2"
+    >
+      <nav class="text-xl flex justify-between w-full h-[80px] items-center px-6 border-b-2 pb-2 border-b-neutral-600">
+        <div>
+          <span class="text-white">Club</span>
+          <span class="text-orange-500">Mine</span>
+        </div>
+        <div class="menu_close">
+          <span class="text-white"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+      </nav>
+      <a href="#" class="hover:bg-neutral-700 transition flex justify-between w-full items-center px-10 border-b-2 pb-2 border-b-neutral-600">
+        <span><i class="fa-solid fa-basketball"></i></span><span>Home</span>
+      </a>
+      <a href="#" class="hover:bg-neutral-700 transition flex justify-between w-full items-center px-10 border-b-2 pb-2 border-b-neutral-600">
+        <span><img class="w-24" src="/public/Img/arrowOutward.svg" /></span><span>About</span>
+      </a>
+      <a href="#" class="hover:bg-neutral-700 transition flex justify-between w-full items-center px-10 border-b-2 pb-2 border-b-neutral-600">
+        <span>Product</span><span><img class="w-24" src="/public/Img/arrow.svg" /></span>
+      </a>
+      <a href="#" class="hover:bg-neutral-700 transition flex justify-between w-full items-center px-10 border-b-2 pb-2 border-b-neutral-600">
+        <span>Contact</span><span><i class="fa-solid fa-basketball"></i></span>
+      </a>
+    </div>
+
+    <!-- About Section -->
+    <section class="text-white flex gap-10 items-center justify-between">
+      <img
+        class="w-[600px] ml-[80px]"
+        src="https://foodsure.co.in/wp-content/uploads/2024/11/Cold-Drink-Recipe-Formulation.png"
+      />
+      <div>
+        <p class="max-w-[600px] mr-[100px] mt-[-40px]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
+          dictum sit amet justo donec enim diam vulputate.
+        </p>
+        <button class="px-6 py-2 bg-orange-400 mt-4">Explore more</button>
+      </div>
+    </section>
+
+    <!-- Dynamic Product Cards Section -->
+    <section class="text-white ml-10 mt-[100px] mb-[100px]">
+      <div class="flex justify-center max-w-[1280px] mx-auto flex-col">
+        <h1 class="text-3xl mb-10">Our Products</h1>
+        <div id="productCards" class="flex gap-4 flex-wrap justify-center mt-4"></div>
+        
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="w-full bg-black pt-5 text-white">
+        <div class="w-full flex flex-col md:flex-row justify-between px-6 md:px-[100px] mt-[60px] gap-10">
+          <div class="mt-[-60px]">
+            <div class="mt-3">
+              <div class="text-3xl drop-shadow-[0_0_10px_#2cb8a8]">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <p class="font-bold text-[32px] md:text-[40px] mb-2 text-orange-500">
+                Refresh Your World
+              </p>
+              <p class="font-semibold text-lg mb-2 text-neutral-400">
+                With ChillFizz Beverages
+              </p>
+              <p class="text-orange-400 mb-2 text-sm">support@chillfizz.com</p>
+              <p class="text-neutral-500 text-xs">
+                © 2024 ChillFizz Beverages Pvt. Ltd.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-[45%]">
+            <h1 class="font-bold text-xl md:text-[36px] text-neutral-500 leading-snug">
+              "Life is better with a fizz. Cool down, energize, and pop the cap of
+              happiness!"
+            </h1>
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-center items-center w-full mt-12 mb-7 text-center">
+          <h2 class="font-bold text-[30px] md:text-[40px] mt-[100px] text-orange-500">
+            Join the Chill Community
+          </h2>
+          <p class="text-lg font-medium mt-2 text-neutral-400">
+            Follow us for cool offers and fizzy fun!
+          </p>
+
+          <div class="mt-5 flex gap-5 items-center text-2xl">
+            <div class="border border-orange-500 rounded-full p-3 hover:bg-orange-500 hover:text-black cursor-pointer transition">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="border border-orange-500 rounded-full p-3 hover:bg-orange-500 hover:text-black cursor-pointer transition">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="border border-orange-500 rounded-full p-3 hover:bg-orange-500 hover:text-black cursor-pointer transition">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="border border-orange-500 rounded-full p-3 hover:bg-orange-500 hover:text-black cursor-pointer transition">
+              <i class="fab fa-discord"></i>
+            </div>
+            <div class="border border-orange-500 rounded-full p-3 hover:bg-orange-500 hover:text-black cursor-pointer transition">
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full bg-neutral-900 h-[8vh] flex justify-center items-center">
+          <h2 class="text-[13px] text-neutral-400">
+            © 2024 ChillFizz Beverages Pvt. Ltd. All rights reserved.
+          </h2>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

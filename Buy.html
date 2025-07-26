@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Product</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="relative bg-black text-white min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto bg-[#191919] rounded-2xl border-2 border-neutral-700 overflow-hidden">
+            
+           
+
+            <div class="grid lg:grid-cols-2 gap-8 p-8">
+                
+                <!-- Product Image & Details -->
+                <div class="space-y-6">
+                    <div class="bg-neutral-800 rounded-xl p-6 text-center">
+                        <img id="productImage" class="w-80 mx-auto mb-6 rounded-lg shadow-lg" alt="Product" src="">
+                        <h2 id="productName" class="text-2xl font-bold text-red-400 mb-4">Loading...</h2>
+                        <div class="text-neutral-300 space-y-2">
+                            <p><span class="font-semibold">Size:</span> <span id="productSize">330ml Can</span></p>
+                            <p><span class="font-semibold">Type:</span> <span id="productType">Beverage</span></p>
+                            <p><span class="font-semibold">Caffeine:</span> <span id="productCaffeine">Contains Caffeine</span></p>
+                            <p><span class="font-semibold">Storage:</span> <span id="productStorage">Keep Refrigerated</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="bg-neutral-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-400 mb-3">Product Description</h3>
+                        <p id="productDescription" class="text-neutral-300 leading-relaxed">
+                            Loading product description...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Order Form -->
+                <div class="space-y-6">
+                    
+                    <!-- Quantity & Price -->
+                    <div class="bg-neutral-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-400 mb-4">Select Quantity</h3>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-lg">Quantity:</span>
+                            <div class="flex items-center space-x-4">
+                                <button id="decreaseBtn" class="bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors">-</button>
+                                <span id="quantity" class="text-2xl font-bold w-12 text-center">1</span>
+                                <button id="increaseBtn" class="bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors">+</button>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-neutral-600 pt-4 space-y-3">
+                            <div class="flex justify-between">
+                                <span>Price per unit:</span>
+                                <span id="unitPrice" class="font-semibold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Subtotal:</span>
+                                <span id="subtotal" class="font-semibold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Tax (5% GST):</span>
+                                <span id="tax" class="font-semibold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Delivery:</span>
+                                <span id="deliveryCharges" class="font-semibold">₹20</span>
+                            </div>
+                            <div class="border-t border-neutral-600 pt-2 flex justify-between text-xl font-bold text-red-400">
+                                <span>Total:</span>
+                                <span id="total">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="bg-neutral-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-400 mb-4">Delivery Options</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="delivery" value="standard" checked class="text-red-600">
+                                <div>
+                                    <div class="font-semibold">Standard Delivery (1-2 days)</div>
+                                    <div class="text-sm text-neutral-400">₹20</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="delivery" value="express" class="text-red-600">
+                                <div>
+                                    <div class="font-semibold">Express Delivery (Same day)</div>
+                                    <div class="text-sm text-neutral-400">₹50</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Payment Form -->
+                    <div class="bg-neutral-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-400 mb-4">Payment Information</h3>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Card Number</label>
+                                <input type="text" placeholder="1234 5678 9012 3456" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Expiry Date</label>
+                                    <input type="text" placeholder="MM/YY" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">CVV</label>
+                                    <input type="text" placeholder="123" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Cardholder Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="bg-neutral-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-400 mb-4">Delivery Address</h3>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" placeholder="Enter your full name" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Address</label>
+                                <input type="text" placeholder="House no, Street, Area" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">City</label>
+                                    <input type="text" placeholder="Jaipur" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">PIN Code</label>
+                                    <input type="text" placeholder="302001" class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-400 focus:border-red-500 focus:outline-none">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Place Order Button -->
+                    <div class="bg-gradient-to-r from-red-600 to-red-800 rounded-xl p-1">
+                        <button id="placeOrderBtn" class="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-xl">🛒</span>
+                                <span class="text-lg">Place Order</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Security Info -->
+                    <div class="text-center text-sm text-neutral-400">
+                        <p>🔒 Your payment information is secure and encrypted</p>
+                        <p>✅ Cash on delivery available</p>
+                        <p>🚚 Free delivery on orders above ₹200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-neutral-800 border-2 border-red-500 rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-2xl font-bold text-red-400 mb-4">Order Confirmed!</h2>
+            <p class="text-neutral-300 mb-2">Thank you for your purchase!</p>
+            <p class="text-neutral-300 mb-6">Your order will be delivered within 1-2 business days.</p>
+            <div class="bg-neutral-700 rounded-lg p-4 mb-6">
+                <div class="text-sm text-neutral-400 mb-2">Order Summary:</div>
+                <div id="orderSummary" class="text-white"></div>
+            </div>
+            <button onclick="goBack()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let quantity = 1;
+        let pricePerUnit = 0;
+        let currentProduct = null;
+        const taxRate = 0.05; // 5% GST
+        let deliveryCost = 20;
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to load product data
+        function loadProductData() {
+            try {
+                // Method 1: Get from URL parameters
+                const productParam = getUrlParameter('product');
+                if (productParam) {
+                    currentProduct = JSON.parse(productParam);
+                } else {
+                    // Method 2: Get from sessionStorage (fallback)
+                    const storedProduct = sessionStorage.getItem('selectedProduct');
+                    if (storedProduct) {
+                        currentProduct = JSON.parse(storedProduct);
+                    }
+                }
+
+                if (currentProduct) {
+                    // Update DOM elements with product data
+                    document.getElementById('productImage').src = currentProduct.image;
+                    document.getElementById('productImage').alt = currentProduct.name;
+                    document.getElementById('productName').textContent = currentProduct.name;
+                    document.getElementById('productDescription').textContent = currentProduct.description;
+                    
+                    // Update product details if available
+                    if (currentProduct.details) {
+                        document.getElementById('productSize').textContent = currentProduct.details.size;
+                        document.getElementById('productType').textContent = currentProduct.details.type;
+                        document.getElementById('productCaffeine').textContent = currentProduct.details.caffeine;
+                        document.getElementById('productStorage').textContent = currentProduct.details.storage;
+                    }
+
+                    // Set price
+                    pricePerUnit = currentProduct.priceValue || parseInt(currentProduct.price.replace('₹', ''));
+                    document.getElementById('unitPrice').textContent = currentProduct.price;
+                    
+                    // Update page title
+                    document.title = `Buy ${currentProduct.name}`;
+                    
+                    // Calculate initial price
+                    updatePrice();
+                } else {
+                    // No product data found, redirect back or show error
+                    alert('No product selected. Redirecting to store...');
+                    window.location.href = 'index.html';
+                }
+            } catch (error) {
+                console.error('Error loading product data:', error);
+                alert('Error loading product data. Please try again.');
+                window.location.href = 'index.html';
+            }
+        }
+
+        function updatePrice() {
+            const subtotal = quantity * pricePerUnit;
+            const tax = subtotal * taxRate;
+            const total = subtotal + tax + deliveryCost;
+
+            document.getElementById('quantity').textContent = quantity;
+            document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(0);
+            document.getElementById('tax').textContent = '₹' + tax.toFixed(0);
+            document.getElementById('deliveryCharges').textContent = '₹' + deliveryCost;
+            document.getElementById('total').textContent = '₹' + total.toFixed(0);
+        }
+
+        // Event listeners
+        document.getElementById('decreaseBtn').addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                updatePrice();
+            }
+        });
+
+        document.getElementById('increaseBtn').addEventListener('click', () => {
+            if (quantity < 50) {
+                quantity++;
+                updatePrice();
+            }
+        });
+
+        // Delivery option change
+        document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                deliveryCost = e.target.value === 'express' ? 50 : 20;
+                document.getElementById('deliveryCharges').textContent = '₹' + deliveryCost;
+                updatePrice();
+            });
+        });
+
+        // Place order
+        document.getElementById('placeOrderBtn').addEventListener('click', () => {
+            const subtotal = quantity * pricePerUnit;
+            const tax = subtotal * taxRate;
+            const total = subtotal + tax + deliveryCost;
+            
+            document.getElementById('orderSummary').innerHTML = `
+                <div class="flex justify-between"><span>${currentProduct.name} × ${quantity}</span><span>₹${subtotal.toFixed(0)}</span></div>
+                <div class="flex justify-between"><span>GST (5%)</span><span>₹${tax.toFixed(0)}</span></div>
+                <div class="flex justify-between"><span>Delivery</span><span>₹${deliveryCost}</span></div>
+                <div class="border-t border-neutral-600 mt-2 pt-2 flex justify-between font-bold text-red-400">
+                    <span>Total</span><span>₹${total.toFixed(0)}</span>
+                </div>
+            `;
+            
+            document.getElementById('confirmationModal').classList.remove('hidden');
+        });
+
+        function closeModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // Initialize the page
+        window.addEventListener('DOMContentLoaded', loadProductData);
+
+        // Add form focus effects
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', (e) => {
+                e.target.parentElement.classList.add('transform', 'scale-105');
+            });
+            
+            input.addEventListener('blur', (e) => {
+                e.target.parentElement.classList.remove('transform', 'scale-105');
+            });
+        });
+    </script>
+</body>
+</html>
